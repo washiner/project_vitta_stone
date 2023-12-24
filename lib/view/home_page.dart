@@ -1,4 +1,6 @@
+import 'package:bloc_pattern_exemple/view/list_view_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -9,46 +11,44 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My APP Bloc'),
+        title: const Text("Voce esta na Home Page"),
       ),
-      body: ListView.separated(
-        itemCount: 20,
-        separatorBuilder: (_, __) => const Divider(),
-        itemBuilder: (_, index) {
-          return ListTile(
-            leading: CircleAvatar(
-              child: Center(
-                child: Text(
-                  index.toString(),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Theme.of(context).scaffoldBackgroundColor,
+              ),
+              child: Text(
+                'Menu',
+                style: TextStyle(
+                  color: Theme.of(context).textTheme.bodyText2?.color,
+                  fontSize: Theme.of(context).textTheme.bodyText2?.fontSize,
                 ),
               ),
             ),
-            title: Text('tarefa ${index.toString()}'),
-            trailing: IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.delete_rounded),
-              color: Colors.red,
+            ListTile(
+              title: Text(
+                'List View Page',
+                style: TextStyle(
+                  color: Theme.of(context).textTheme.bodyText2?.color,
+                ),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/list_view_page');
+              },
             ),
-          );
-        },
+          ],
+        ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
+      body: const Center(
+        child: Text("Projeto Viita Stone"),
       ),
     );
-  }
-  @override
-  void dispose() {
-    //por enquanto vazio
-    super.dispose();
   }
 }

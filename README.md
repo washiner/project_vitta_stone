@@ -34,3 +34,9 @@
     - Cerimônias
     - Problemáticas
 - Apresentar uma retrospectiva com o time.
+
+
+Sumario -
+
+Master -> projeto base
+Vitta/Project-0001 -> Drawer para organizar os menus e a estrutura de rotas nomeadas e themeData
