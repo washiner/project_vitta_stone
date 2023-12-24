@@ -1,16 +1,36 @@
-# bloc_pattern_exemple
+# Objetivos
 
-A new Flutter project.
+# Projeto do zero em Flutter
 
-## Getting Started
+### A aplicação deve conter
 
-This project is a starting point for a Flutter application.
+- Gerenciamento de estado
+    - Flutter BLoc
+- Camada de serviço
+- Camada de repositório
+    - Reposiiório local
+    - Repositório remoto
+        - Requisições (dio…)
+- Navegação no app
+    - Navegações nomeadas
+    - Passagem de parametros entre telas
+- Gerenciamento cores e estilos por tema
 
-A few resources to get you started if this is your first Flutter project:
+### Gerenciamento do repositório Git
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- O projeto deve ser feito utilizando Git
+    - Github, Gitlab ou Bitbucket pode ser definido pelo dev
+    - Gerenciamento de branchs por feature
+        - Cada feature do app deve ser implementada em sua branch respectiva
+    - Processo de mesclagem de PR
+        - Cada feature deve ser inserida na branch principal mediamente PR de sua branch
+    - Histórico do repositório será considerado como referência
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Metodologia Ágil Scrum
+
+- Alguns tópicos de referência
+    - Como funciona
+    - Motivações
+    - Cerimônias
+    - Problemáticas
+- Apresentar uma retrospectiva com o time.
