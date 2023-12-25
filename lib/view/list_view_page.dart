@@ -3,6 +3,7 @@ import 'package:bloc_pattern_exemple/tarefa_blocs/tarefa_bloc.dart';
 import 'package:bloc_pattern_exemple/tarefa_blocs/tarefa_event.dart';
 import 'package:bloc_pattern_exemple/tarefa_blocs/tarefa_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ListViewPage extends StatefulWidget {
   const ListViewPage({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class _ListViewPageState extends State<ListViewPage> {
   void initState() {
     super.initState();
     _tarefabloc = TarefaBloc();
-    _tarefabloc.inputTarefa.add(
+    _tarefabloc.add(
         GetTarefas()); //chamando novo event para nosso bloc chamado getTarefa
   }
 
@@ -27,17 +28,16 @@ class _ListViewPageState extends State<ListViewPage> {
       appBar: AppBar(
         title: const Text('My APP Bloc'),
       ),
-      body: StreamBuilder<TarefaState>(
+      body: BlocBuilder<TarefaBloc, TarefaState>(
         //ouvindo emissoes de estado
-        stream:
-            _tarefabloc.outputTarefa, // qual a saida de dados que ele vai ouvir
+        bloc: _tarefabloc, // qual a saida de dados que ele vai ouvir
         builder: (context, state) {
-          if (state.data is TarefaLoadingState) {
+          if (state is TarefaLoadingState) {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (state.data is TarefaLoadedState) {
-            final list = state.data?.tarefas ?? [];
+          } else if (state is TarefaLoadedState) {
+            final list = state.tarefas;
             return ListView.separated(
               itemCount: list.length,
               separatorBuilder: (_, __) => const Divider(),
@@ -53,8 +53,11 @@ class _ListViewPageState extends State<ListViewPage> {
                   title: Text(list[index].nome),
                   trailing: IconButton(
                     onPressed: () {
-                      _tarefabloc.inputTarefa
-                          .add(DeleteTarefas(tarefa: list[index]));
+                      _tarefabloc.add(
+                        DeleteTarefas(
+                          tarefa: list[index],
+                        ),
+                      );
                     },
                     icon: const Icon(Icons.delete_rounded),
                     color: Colors.red,
@@ -71,7 +74,7 @@ class _ListViewPageState extends State<ListViewPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _tarefabloc.inputTarefa.add(
+          _tarefabloc.add(
             PostTarefas(
               tarefa: TarefaModel(nome: "Levar Shiro no Petshop"),
             ),
@@ -84,7 +87,7 @@ class _ListViewPageState extends State<ListViewPage> {
 
   @override
   void dispose() {
-    _tarefabloc.inputTarefa.close();  //liverar recursos de memória
+    _tarefabloc.close(); //liverar recursos de memória
     super.dispose();
   }
 }
