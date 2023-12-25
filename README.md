@@ -40,3 +40,4 @@ Sumario -
 
 Master -> projeto base
 Vitta/Project-0001 -> Drawer para organizar os menus e a estrutura de rotas nomeadas e themeData
+Vitta/Project-0002 -> Criando uma list view usando bloc sem utilizar nenhum pacote 
