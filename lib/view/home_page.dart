@@ -1,6 +1,4 @@
-import 'package:bloc_pattern_exemple/view/list_view_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,8 +8,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  
   @override
   Widget build(BuildContext context) {
+
+    final String? nome = ModalRoute.of(context)?.settings.arguments as String?;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Voce esta na Home Page"),
@@ -25,7 +27,7 @@ class _HomePageState extends State<HomePage> {
                 color: Theme.of(context).scaffoldBackgroundColor,
               ),
               child: Text(
-                'Menu',
+                nome != null ? 'Bem-vindo, $nome' : 'Menu',
                 style: TextStyle(
                   color: Theme.of(context).textTheme.bodyText2?.color,
                   fontSize: Theme.of(context).textTheme.bodyText2?.fontSize,
@@ -41,6 +43,17 @@ class _HomePageState extends State<HomePage> {
               ),
               onTap: () {
                 Navigator.pushNamed(context, '/list_view_page');
+              },
+            ),
+             ListTile(
+              title: Text(
+                'Passagem de Parametro',
+                style: TextStyle(
+                  color: Theme.of(context).textTheme.bodyText2?.color,
+                ),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/passagem_parametro');
               },
             ),
           ],
