@@ -1,6 +1,6 @@
 // arquivo responsável por todos estados da lista de tarefa
 
-import 'package:bloc_pattern_exemple/model/tarefa_model.dart';
+import '../model/tarefa_model.dart';
 
 abstract class TarefaState {
   final List<TarefaModel> tarefas;

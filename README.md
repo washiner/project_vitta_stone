@@ -43,3 +43,4 @@ Sumario -
 - Vitta/Project-0002 -> Criando uma list view usando bloc sem utilizar nenhum pacote apenas steams
 - Vitta/Project-0003 -> Adicionando pacote bloc e flutter_bloc e atualizando a lista de tarefas
 - Vitta/Project-0004 -> Passagem de parâmetro entre telas e atualizaçao dos imports pois troquei o nome do projeto.
+- Vitta/Project-0005 -> Consumo de API usando o pacote Dio usando padrao de arquitetura MVC, atualizaçao de imports.

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
 class PassagemParametro extends StatefulWidget {
-  const PassagemParametro({ Key? key }) : super(key: key);
+  const PassagemParametro({Key? key}) : super(key: key);
 
   @override
   State<PassagemParametro> createState() => _PassagemParametroState();
 }
 
 class _PassagemParametroState extends State<PassagemParametro> {
-
   final TextEditingController _textController = TextEditingController();
 
   @override
@@ -37,7 +36,7 @@ class _PassagemParametroState extends State<PassagemParametro> {
             ),
           ),
           ElevatedButton(
-            onPressed: (){
+            onPressed: () {
               String nome;
               setState(() {
                 nome = _textController.text;
