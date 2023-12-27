@@ -1,7 +1,8 @@
-import 'package:bloc_pattern_exemple/view/passagem_parametro.dart';
 import 'package:flutter/material.dart';
+import 'view/endereco_page.dart';
 import 'view/home_page.dart';
 import 'view/list_view_page.dart';
+import 'view/passagem_parametro.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const HomePage(),
         '/list_view_page': (context) => const ListViewPage(),
-        '/passagem_parametro':(context) => const PassagemParametro(),
+        '/passagem_parametro': (context) => const PassagemParametro(),
+        '/endereco_page': (context) => EnderecoPage()
       },
     );
   }

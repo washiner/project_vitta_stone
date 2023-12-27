@@ -1,4 +1,4 @@
-import 'package:bloc_pattern_exemple/model/tarefa_model.dart';
+import '../model/tarefa_model.dart';
 
 class TarefaRepositorie {
   final List<TarefaModel> _tarefas = [];
@@ -27,7 +27,7 @@ class TarefaRepositorie {
     });
   }
 
-  Future<List<TarefaModel>> deleteTarefa({required TarefaModel tarefa}) async{
+  Future<List<TarefaModel>> deleteTarefa({required TarefaModel tarefa}) async {
     _tarefas.remove(tarefa);
     return Future.delayed(const Duration(seconds: 2), () => _tarefas);
   }

@@ -1,12 +1,10 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
-import 'package:bloc_pattern_exemple/model/tarefa_model.dart';
-import 'package:bloc_pattern_exemple/tarefa_blocs/tarefa_event.dart';
-import 'package:bloc_pattern_exemple/tarefa_blocs/tarefa_state.dart';
-import 'package:bloc_pattern_exemple/tarefa_repositories/tarefa_repositorie.dart';
+import '../model/tarefa_model.dart';
+import '../repositories/tarefa_repositorie.dart';
+import 'tarefa_event.dart';
+import 'tarefa_state.dart';
 
-class TarefaBloc extends Bloc<TarefaEvent, TarefaState>{
+class TarefaBloc extends Bloc<TarefaEvent, TarefaState> {
   final _repository = TarefaRepositorie();
 
   TarefaBloc() : super(TarefaInitialState()) {
@@ -16,11 +14,11 @@ class TarefaBloc extends Bloc<TarefaEvent, TarefaState>{
     List<TarefaModel> tarefas = [];
 
     emit(TarefaLoadingState());
-    if(event is GetTarefas){
+    if (event is GetTarefas) {
       tarefas = await _repository.getTarefas();
-    }else if(event is PostTarefas){
+    } else if (event is PostTarefas) {
       tarefas = await _repository.postTarefas(tarefa: event.tarefa);
-    }else if(event is DeleteTarefas){
+    } else if (event is DeleteTarefas) {
       tarefas = await _repository.deleteTarefa(tarefa: event.tarefa);
     }
     emit(TarefaLoadedState(tarefas: tarefas));

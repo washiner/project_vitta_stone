@@ -56,6 +56,17 @@ class _HomePageState extends State<HomePage> {
                 Navigator.pushNamed(context, '/passagem_parametro');
               },
             ),
+            ListTile(
+              title: Text(
+                'Buscar endereço pelo Cep',
+                style: TextStyle(
+                  color: Theme.of(context).textTheme.bodyText2?.color,
+                ),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/endereco_page');
+              },
+            ),
           ],
         ),
       ),
